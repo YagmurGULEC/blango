@@ -66,7 +66,12 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
+            #register filter tag in settings
+            'libraries':{
+                'blog_extras': 'blog.templatetags.blog_extras', #Added here
+            }
         },
+        
     },
 ]
 

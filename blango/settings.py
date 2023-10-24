@@ -55,7 +55,9 @@ ROOT_URLCONF = 'blango.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        #to get the template from the root directory
+        'DIRS': [BASE_DIR/'templates'],
+        #every application has its own blog specific templates for instance blango/templates/blog
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% load blog_extras %}
+{% block content %}
+<h2>{{ title }}</h2>
+{% row %}
+
+{% recent_posts post %}
+
+{% endrow %}
+{% endblock %}

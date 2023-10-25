@@ -69,6 +69,7 @@ TEMPLATES = [
             #register filter tag in settings
             'libraries':{
                 'blog_extras': 'blog.templatetags.blog_extras', #Added here
+                
             }
         },
         

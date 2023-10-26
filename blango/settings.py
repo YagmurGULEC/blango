@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
-
+import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -24,20 +24,31 @@ SECRET_KEY = 'django-insecure-+sn%dpa!086+g+%44z9*^j^q-u4n!j(#wl)x9a%_1op@zz2+1-
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
+LOGGING = {
+"version": 1,
+"disable_existing_loggers": False,
+"handlers": {
+"console": {"class": "logging.StreamHandler", "stream":
+"ext://sys.stdout"},
+},
+"root": {
+"handlers": ["console"],
+"level": "DEBUG",
+}
+}
 ALLOWED_HOSTS = []
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'blog',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'blog',
     'crispy_forms',
     'crispy_bootstrap5'
 ]
@@ -136,3 +147,4 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
+

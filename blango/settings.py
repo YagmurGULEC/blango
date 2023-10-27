@@ -37,8 +37,14 @@ LOGGING = {
 }
 }
 ALLOWED_HOSTS = []
-
-
+#Memcached
+CACHES = {
+    "default": {
+    "BACKEND":
+        "django.core.cache.backends.memcached.PyMemcacheCache",
+        "LOCATION": "127.0.0.1:11211",
+        }
+}
 # Application definition
 
 INSTALLED_APPS = [
@@ -53,6 +59,15 @@ INSTALLED_APPS = [
     'crispy_bootstrap5'
 ]
 
+PASSWORD_HASHERS = [
+      #recommended by 2015 Password hashing competition
+'django.contrib.auth.hashers.Argon2PasswordHasher',
+    #default value
+'django.contrib.auth.hashers.PBKDF2PasswordHasher',
+'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
+ 
+'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
+]
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -103,6 +118,7 @@ DATABASES = {
 }
 
 
+
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
@@ -147,4 +163,3 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
-

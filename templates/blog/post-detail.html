@@ -1,11 +1,13 @@
 {% extends "base.html" %}
-{% load blog_extras crispy_forms_tags %}
+{% load blog_extras crispy_forms_tags cache %}
 {% block content %}
 
 <h2>{{ title }}</h2>
 {% row %}
-
+{% cache 3600 recent_posts %}
 {% recent_posts post %}
+{% endcache %}
+
 
 {% endrow %}
 {%if request.user.is_active%}

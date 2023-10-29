@@ -17,7 +17,7 @@ class Comment(models.Model):
     #pointing to the a generic type
     content_type=models.ForeignKey(ContentType,on_delete=models.CASCADE)
     #pointing to the primary key of the object to be defined flexibly
-    object_id=models.PositiveIntegerField()
+    object_id=models.PositiveIntegerField(db_index=True)
     #field to look up the object from the two other field
     content_object=GenericForeignKey("content_type","object_id")
     created_at = models.DateTimeField(auto_now_add=True)
@@ -25,7 +25,7 @@ class Comment(models.Model):
     
 class Post(models.Model):
     author=models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.PROTECT)
-    created_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(auto_now_add=True,db_index=True)
     modified_at = models.DateTimeField(auto_now=True)
     published_at = models.DateTimeField(blank=True, null=True)
     title = models.TextField(max_length=100)

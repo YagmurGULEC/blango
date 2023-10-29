@@ -56,7 +56,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'crispy_forms',
-    'crispy_bootstrap5'
+    'crispy_bootstrap5',
+    'debug_toolbar'
 ]
 
 PASSWORD_HASHERS = [
@@ -69,6 +70,7 @@ PASSWORD_HASHERS = [
 'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
 ]
 MIDDLEWARE = [
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -77,7 +79,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
+INTERNAL_IPS = ["127.0.0.1"]
 ROOT_URLCONF = 'blango.urls'
 
 TEMPLATES = [

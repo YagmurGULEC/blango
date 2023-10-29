@@ -25,49 +25,53 @@ SECRET_KEY = 'django-insecure-+sn%dpa!086+g+%44z9*^j^q-u4n!j(#wl)x9a%_1op@zz2+1-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 LOGGING = {
-"version": 1,
-"disable_existing_loggers": False,
-"handlers": {
-"console": {"class": "logging.StreamHandler", "stream":
-"ext://sys.stdout"},
-},
-"root": {
-"handlers": ["console"],
-"level": "DEBUG",
-}
+    "version": 1,
+    "disable_existing_loggers": False,
+    "handlers": {
+        "console": {"class": "logging.StreamHandler", "stream":
+                    "ext://sys.stdout"},
+    },
+    "root": {
+        "handlers": ["console"],
+        "level": "DEBUG",
+    }
 }
 ALLOWED_HOSTS = []
-#Memcached
+# Memcached
 CACHES = {
     "default": {
-    "BACKEND":
+        "BACKEND":
         "django.core.cache.backends.memcached.PyMemcacheCache",
         "LOCATION": "127.0.0.1:11211",
-        }
+    }
 }
 # Application definition
 
 INSTALLED_APPS = [
     'blog',
+
     'django.contrib.admin',
+
     'django.contrib.auth',
+    'users',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'crispy_forms',
     'crispy_bootstrap5',
-    'debug_toolbar'
-]
+    'debug_toolbar',
 
+]
+AUTH_USER_MODEL = "users.CustomUser"
 PASSWORD_HASHERS = [
-      #recommended by 2015 Password hashing competition
-'django.contrib.auth.hashers.Argon2PasswordHasher',
-    #default value
-'django.contrib.auth.hashers.PBKDF2PasswordHasher',
-'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
- 
-'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
+    # recommended by 2015 Password hashing competition
+    'django.contrib.auth.hashers.Argon2PasswordHasher',
+    # default value
+    'django.contrib.auth.hashers.PBKDF2PasswordHasher',
+    'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
+
+    'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
 ]
 MIDDLEWARE = [
     'debug_toolbar.middleware.DebugToolbarMiddleware',
@@ -85,9 +89,9 @@ ROOT_URLCONF = 'blango.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        #to get the template from the root directory
+        # to get the template from the root directory
         'DIRS': [BASE_DIR/'templates'],
-        #every application has its own blog specific templates for instance blango/templates/blog
+        # every application has its own blog specific templates for instance blango/templates/blog
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -96,13 +100,13 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
-            #register filter tag in settings
+            # register filter tag in settings
             'libraries':{
-                'blog_extras': 'blog.templatetags.blog_extras', #Added here
-                
+                'blog_extras': 'blog.templatetags.blog_extras',  # Added here
+
             }
         },
-        
+
     },
 ]
 
@@ -118,7 +122,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 
 # Password validation

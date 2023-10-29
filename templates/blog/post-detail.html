@@ -18,4 +18,12 @@
     <button type="submit">Submit</button>
 </form>
 {%endif%}
+{% if post.author.profile %}
+{% row %}
+
+<h4>About the author</h4>
+<p>{{ post.author.profile.bio }}</p>
+
+{% endrow %}
+{% endif %}
 {% endblock %}

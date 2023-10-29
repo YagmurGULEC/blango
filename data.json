@@ -1,0 +1,62 @@
+[
+    {
+        "model": "blog.comment",
+        "pk": 1,
+        "fields": {
+            "creator": 1,
+            "content": "Hello!",
+            "content_type": 8,
+            "object_id": 1,
+            "created_at": "2023-10-24T18:36:24.909Z",
+            "modified_at": "2023-10-24T18:36:24.920Z"
+        }
+    },
+    {
+        "model": "blog.comment",
+        "pk": 2,
+        "fields": {
+            "creator": 1,
+            "content": "Hello world!",
+            "content_type": 8,
+            "object_id": 1,
+            "created_at": "2023-10-25T16:23:26.215Z",
+            "modified_at": "2023-10-25T16:23:26.215Z"
+        }
+    },
+    {
+        "model": "blog.comment",
+        "pk": 3,
+        "fields": {
+            "creator": 1,
+            "content": "vdfd",
+            "content_type": 8,
+            "object_id": 1,
+            "created_at": "2023-10-25T16:39:43.587Z",
+            "modified_at": "2023-10-25T16:39:43.587Z"
+        }
+    },
+    {
+        "model": "blog.tag",
+        "pk": 1,
+        "fields": {
+            "value": "Django"
+        }
+    },
+    {
+        "model": "blog.post",
+        "pk": 1,
+        "fields": {
+            "author": 1,
+            "created_at": "2023-10-24T18:25:00.960Z",
+            "modified_at": "2023-10-24T20:21:22.102Z",
+            "published_at": "2023-10-24T20:21:18Z",
+            "title": "An example post",
+            "slug": "an-example-post",
+            "summary": "Summary",
+            "content": "Summary",
+            "tags": [
+                1
+            ]
+        }
+    }
+]

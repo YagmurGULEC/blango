@@ -112,7 +112,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'blango.wsgi.application'
 
-
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+ACCOUNT_ACTIVATION_DAYS = 7
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
@@ -168,3 +169,6 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
+
+# REGISTRATION_OPEN = False
+REGISTRATION_EMAIL_HTML = False
